@@ -91,30 +91,25 @@ QA summary reports and release validation checklists.
 
 The Airbnb Clone Backend is built with a modern and reliable technology stack designed for scalability, security, and smooth integration with frontend applications. Each technology plays a specific role in delivering a performant and production-ready system.
 
-**Technology stack**
+| **Technology**                          | **Purpose in the Project**                                                                                                                    |
+| :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Django**                              | A high-level Python web framework used to build the backend application, manage routing, authentication, and ORM-based database interactions. |
+| **Django REST Framework (DRF)**         | Extends Django to provide RESTful APIs for CRUD operations on users, properties, bookings, and payments.                                      |
+| **GraphQL**                             | Offers a flexible query language that allows clients to request only the data they need, improving efficiency and reducing over-fetching.     |
+| **PostgreSQL**                          | A robust relational database for storing structured data such as user profiles, property listings, bookings, and reviews.                     |
+| **Redis**                               | An in-memory data store used for caching, session management, and message brokering between Celery workers.                                   |
+| **Celery**                              | Handles asynchronous tasks such as sending emails, processing payments, and updating booking statuses in the background.                      |
+| **Docker**                              | Containerizes the application and its dependencies to ensure consistent development and deployment environments.                              |
+| **CI/CD (GitHub Actions)**              | Automates testing, building, and deployment processes to maintain code quality and accelerate delivery.                                       |
+| **OpenAPI (Swagger)**                   | Used to document RESTful APIs, providing clear endpoint definitions for easy integration and testing.                                         |
+| **Payment Gateway (Stripe / Paystack)** | Facilitates secure payment processing for bookings and transaction records.                                                                   |
 
-**Django**	
-A high-level Python web framework used to build the backend application, manage routing, authentication, and ORM-based database interactions.
+**DATABASE DESIGN**
 
-**Django REST Framework (DRF)**	
-Extends Django to provide RESTful APIs for CRUD operations on users, properties, bookings, and payments.
-
-**GraphQL**	
-Offers a flexible query language that allows clients to request only the data they need, improving efficiency and reducing over-fetching.
-
-**PostgreSQL**	
-A robust relational database for storing structured data such as user profiles, property listings, bookings, and reviews.
-
-**Redis**	
-An in-memory data store used for caching, session management, and message brokering between Celery workers.
-
-**Celery**	
-Handles asynchronous tasks such as sending emails, processing payments, and updating booking statuses in the background.
-
-**Docker**	
-Containerizes the application and its dependencies to ensure consistent development and deployment environments.
-
-**CI**/**CD (GitHub Actions)**
-Automates testing, building, and deployment processes to maintain code quality and accelerate delivery.
-**OpenAPI** (Swagger)	Used to document RESTful APIs, providing clear endpoint definitions for easy integration and testing.
-**Payment Gateway (Stripe / Paystack)**	Facilitates secure payment processing for bookings and transaction records.
+| **Entity**   | **Key Fields (3–5)**                                                  | **Description & Relationships**                                                                                                                                        |
+| :----------- | :-------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **User**     | `id`, `username`, `email`, `role`, `date_joined`                      | Represents platform users (hosts or guests). <br>• A user **can list multiple properties**. <br>• A user **can make multiple bookings**.                               |
+| **Property** | `id`, `title`, `description`, `price_per_night`, `location`           | Represents accommodation listings created by hosts. <br>• A property **belongs to a user (host)**. <br>• A property **can have many bookings and reviews**.            |
+| **Booking**  | `id`, `user`, `property`, `check_in_date`, `check_out_date`, `status` | Represents a reservation made by a guest for a property. <br>• A booking **belongs to one user and one property**. <br>• Each booking **has one payment record**.      |
+| **Payment**  | `id`, `booking`, `amount`, `status`, `transaction_reference`          | Stores payment details for completed bookings. <br>• Each payment **is linked to one booking**. <br>• Uses Stripe or Paystack APIs for secure processing.              |
+| **Review**   | `id`, `user`, `property`, `rating`, `comment`                         | Allows guests to rate and review properties after their stay. <br>• A review **belongs to one property and one user**. <br>• A property **can have multiple reviews**. |

@@ -125,20 +125,3 @@ Automated API test scripts (e.g., Postman, Pytest, or pytest-django).
 
 QA summary reports and release validation checklists.
 
-🧠 Project Manager / Tech Lead (Optional Role for Larger Teams)
-
-Responsibilities:
-
-Oversee project timelines, sprints, and milestone tracking.
-
-Facilitate communication among cross-functional teams (backend, frontend, DevOps, QA).
-
-Manage task prioritization, code review schedules, and resource allocation.
-
-Ensure that technical decisions align with business goals and project vision.
-
-Key Deliverables:
-
-Sprint boards, progress reports, and project roadmaps.
-
-Coordination between development and testing cycles.

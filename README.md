@@ -113,3 +113,38 @@ The Airbnb Clone Backend is built with a modern and reliable technology stack de
 | **Booking**  | `id`, `user`, `property`, `check_in_date`, `check_out_date`, `status` | Represents a reservation made by a guest for a property. <br>• A booking **belongs to one user and one property**. <br>• Each booking **has one payment record**.      |
 | **Payment**  | `id`, `booking`, `amount`, `status`, `transaction_reference`          | Stores payment details for completed bookings. <br>• Each payment **is linked to one booking**. <br>• Uses Stripe or Paystack APIs for secure processing.              |
 | **Review**   | `id`, `user`, `property`, `rating`, `comment`                         | Allows guests to rate and review properties after their stay. <br>• A review **belongs to one property and one user**. <br>• A property **can have multiple reviews**. |
+
+
+✨ Feature Breakdown
+
+The project includes several key features designed to replicate core functionalities of a modern property rental platform, ensuring smooth user interaction, scalability, and data reliability.
+
+1. User Management
+
+Handles authentication, registration, and role management for both guests and hosts.
+Users can create accounts, log in securely using JWT authentication, and manage their profiles. Hosts can list properties, while guests can browse and make bookings.
+
+2. Property Management
+
+Allows hosts to create, update, and manage property listings.
+Each listing includes essential details such as location, pricing, amenities, and availability. This feature ensures that users can easily discover and compare properties based on their preferences.
+
+3. Booking System
+
+Facilitates end-to-end booking functionality for guests.
+Users can select available dates, make reservations, and view booking history. The system validates date overlaps, ensuring no double-bookings occur and that both hosts and guests have visibility into booking statuses.
+
+4. Payment Integration
+
+Implements secure online payment processing using Stripe or Paystack.
+This feature handles payment confirmations, refunds, and transaction tracking. It ensures that hosts receive payments promptly while guests enjoy a seamless checkout experience.
+
+5. Review and Rating System
+
+Enables guests to submit reviews and ratings for properties after their stay.
+Reviews improve trust within the platform and help other users make informed booking decisions. Hosts can also view feedback to enhance their service offerings.
+
+6. Admin Dashboard
+
+Provides administrators with tools for system monitoring, user oversight, and data management.
+Admins can review user activity, manage listings, moderate reviews, and ensure platform policies are maintained efficiently.

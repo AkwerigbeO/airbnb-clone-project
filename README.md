@@ -148,3 +148,49 @@ Reviews improve trust within the platform and help other users make informed boo
 
 Provides administrators with tools for system monitoring, user oversight, and data management.
 Admins can review user activity, manage listings, moderate reviews, and ensure platform policies are maintained efficiently.
+
+🔒 API Security
+
+Security is a core aspect of the Airbnb Clone backend to ensure the protection of sensitive data, prevent unauthorized access, and maintain trust between users and the platform. The following security measures are implemented across the system to safeguard users, hosts, and payment transactions.
+
+1. Authentication
+
+The system uses JWT (JSON Web Token) authentication to verify user identity during API requests.
+Each user must log in to receive a token that grants access to protected endpoints. This ensures that only authenticated users can perform actions such as booking properties, managing listings, or posting reviews.
+
+🔹 Importance: Protects against unauthorized access and impersonation attacks.
+
+2. Authorization
+
+Role-based access control (RBAC) determines what actions a user can perform based on their role — for example, hosts can create properties, while guests can make bookings.
+Sensitive endpoints (like admin dashboards) are restricted to authorized personnel only.
+
+🔹 Importance: Prevents privilege escalation and ensures users only access data relevant to their role.
+
+3. Data Encryption
+
+Sensitive information such as passwords and payment data is encrypted using industry-standard hashing (bcrypt) and SSL/TLS protocols.
+All communication between the frontend and backend occurs over HTTPS to prevent eavesdropping and data tampering.
+
+🔹 Importance: Protects personal data and financial transactions from interception or theft.
+
+4. Rate Limiting
+
+To prevent abuse and denial-of-service (DoS) attacks, rate limiting is applied to API endpoints.
+This restricts the number of requests a single user or IP can make within a set timeframe.
+
+🔹 Importance: Ensures server stability and prevents malicious actors from overwhelming the system.
+
+5. Input Validation & Sanitization
+
+All input data is validated and sanitized at the API level using Django REST Framework serializers and middleware.
+This mitigates risks such as SQL injection, cross-site scripting (XSS), and data corruption.
+
+🔹 Importance: Maintains data integrity and protects the backend from injection-based attacks.
+
+6. Secure Payment Handling
+
+Payment processes are handled through trusted third-party gateways (e.g., Stripe or Paystack), ensuring compliance with PCI-DSS security standards.
+The backend never stores raw credit card details; only transaction references and status information are saved.
+
+🔹 Importance: Ensures financial data is processed securely, protecting users and the platform from fraud.

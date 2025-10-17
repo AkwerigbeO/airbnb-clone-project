@@ -194,3 +194,38 @@ Payment processes are handled through trusted third-party gateways (e.g., Stripe
 The backend never stores raw credit card details; only transaction references and status information are saved.
 
 🔹 Importance: Ensures financial data is processed securely, protecting users and the platform from fraud.
+
+
+⚙️ CI/CD Pipeline
+
+Continuous Integration and Continuous Deployment (CI/CD) pipelines are essential for automating the process of building, testing, and deploying the application. They ensure that every code change is automatically validated and deployed in a reliable, consistent, and efficient manner.
+
+What is CI/CD?
+
+Continuous Integration (CI): Automatically builds and tests new code each time changes are pushed to the repository. This helps detect errors early and maintain a stable codebase.
+
+Continuous Deployment (CD): Automatically deploys tested and verified code to production or staging environments, ensuring faster delivery and reducing manual intervention.
+
+Importance for the Project
+
+Implementing a CI/CD pipeline enhances collaboration, reliability, and productivity among developers. It ensures that:
+
+Code changes are tested before merging, preventing regressions.
+
+Deployments are repeatable, predictable, and less prone to human error.
+
+New features and bug fixes reach users more quickly.
+
+Tools & Technologies
+
+The project’s CI/CD process can be built using the following tools:
+
+GitHub Actions: Automates workflows such as testing, linting, building Docker images, and deploying code.
+
+Docker: Ensures that the application runs consistently across all environments (development, staging, and production).
+
+Docker Compose: Used to define and manage multi-container services during automated testing.
+
+AWS / Render / DigitalOcean (Optional): For hosting and deployment of the backend application.
+
+pytest: Executes automated tests during the CI phase to ensure code reliability before deployment.
